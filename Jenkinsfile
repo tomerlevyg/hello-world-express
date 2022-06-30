@@ -17,7 +17,9 @@ pipeline {
             aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 770039027395.dkr.ecr.eu-west-2.amazonaws.com
             docker build -t 770039027395.dkr.ecr.eu-west-2.amazonaws.com/${SERVICENAME}:${BUILD_NUMBER}-sandbox .
             docker run -d -p 8999:80 --name test-container 770039027395.dkr.ecr.eu-west-2.amazonaws.com/${SERVICENAME}:${BUILD_NUMBER}-sandbox
+            sleep 2
             curl localhost:8999 | grep "Hello From Docker" || echo "Test Failed Exiting" && exit 2
+            docker rm -f test-container
             '''
           }
 

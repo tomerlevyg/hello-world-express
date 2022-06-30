@@ -32,7 +32,7 @@ pipeline {
         steps {
           sh '''
           docker push 770039027395.dkr.ecr.eu-west-2.amazonaws.com/${SERVICENAME}:${BUILD_NUMBER}-sandbox
-          docker tag docker push 770039027395.dkr.ecr.eu-west-2.amazonaws.com/${SERVICENAME}:${BUILD_NUMBER}-sandbox docker push 770039027395.dkr.ecr.eu-west-2.amazonaws.com/${SERVICENAME}:latest
+          docker tag 770039027395.dkr.ecr.eu-west-2.amazonaws.com/${SERVICENAME}:${BUILD_NUMBER}-sandbox 770039027395.dkr.ecr.eu-west-2.amazonaws.com/${SERVICENAME}:latest
           docker push 770039027395.dkr.ecr.eu-west-2.amazonaws.com/${SERVICENAME}:latest
             '''
         }

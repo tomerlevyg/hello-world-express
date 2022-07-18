@@ -8,7 +8,7 @@ function run () {
     return new Promise(async (resolve, reject) => {
         try {
             const browser = await puppeteer.launch({
-                headless: false,
+                headless: true,
                 ignoreHTTPSErrors: false,
                 defaultViewport: false,
                 args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-infobars']
